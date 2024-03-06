@@ -10,6 +10,10 @@ import router from './routers/router.jsx';
 
 ReactDOM.createRoot( document.getElementById( 'root' ) ).render(
   <React.StrictMode>
-    <RouterProvider router={ router } />
+    <div className="bg-slate-900 h-screen">
+      <div className="bg-gradient-to-b from-violet-600/[.15] via-transparent">
+        <RouterProvider router={ router } />
+      </div>
+    </div>
   </React.StrictMode>,
 )
