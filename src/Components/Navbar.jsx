@@ -31,7 +31,7 @@ const Navbar = () => {
                         {
                             config.navbar.links.map( ( link, index ) => {
                                 return (
-                                    <NavLink key={ index } className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500" to={ link.link }>{ link.name }</NavLink>
+                                    <a key={ index } className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500" href={ link.link }>{ link.name }</a>
                                 );
                             } )
                         }
