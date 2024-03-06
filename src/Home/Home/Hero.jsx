@@ -6,7 +6,7 @@ const Hero = () => {
             <div className="">
                 <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">
                     <div className="flex justify-center">
-                        <a className="group inline-block bg-white/[.05] hover:bg-white/[.1] border border-white/[.05] p-1 ps-4 rounded-full shadow-md" href="../figma.html">
+                        <div className="group inline-block bg-white/[.05] hover:bg-white/[.1] border border-white/[.05] p-1 ps-4 rounded-full shadow-md">
                             <p className="me-2 inline-block text-white text-sm">
                                 Preline UI Figma is live.
                             </p>
@@ -15,7 +15,7 @@ const Hero = () => {
                                     <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                                 </svg>
                             </span>
-                        </a>
+                        </div>
                     </div>
 
                     <div className="max-w-3xl text-center mx-auto">

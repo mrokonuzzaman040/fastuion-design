@@ -7,7 +7,7 @@ const config = {
         links: [
             {
                 name: "Home",
-                link: "#home",
+                link: "/",
             },
             {
                 name: "About",
