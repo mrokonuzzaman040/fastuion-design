@@ -22,3 +22,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+/* add scrole smooth effect */
+html {
+  scroll-behavior: smooth;
+}
