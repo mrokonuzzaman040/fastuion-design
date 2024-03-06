@@ -6,6 +6,8 @@ import {
 import HomeLayout from "../Home/HomeLayout";
 import Home from "../Home/Home/Home";
 import PagenotFound from "../Components/PagenotFound";
+import Dashboard from "../Admin/Dashboard/Dashboard";
+import DashboardLayout from "../Admin/DashboardLayout";
 
 const router = createBrowserRouter( [
     {
@@ -21,6 +23,16 @@ const router = createBrowserRouter( [
     {
         path: "*",
         element: <PagenotFound />,
+    },
+    {
+        path: "dashboard",
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: "dashboard",
+                element: <Dashboard />,
+            },
+        ],
     },
 ] );
 
