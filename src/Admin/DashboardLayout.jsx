@@ -138,14 +138,14 @@ const DashboardLayout = () => {
                             </button>
 
                             <div id="projects-accordion-child" className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
-                                <ul className="pt-2 ps-2">
+                                <ul className="pt-2 ps-2 gap-4 flex flex-col">
                                     <li>
-                                        <NavLink className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" to={ '/dasboad/additem' }>
+                                        <NavLink className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" to={ '/dashboard/add-item' }>
                                             Add Project
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" to={ '/dashboard/deleteitem' }>
+                                        <NavLink className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" to={ '/dashboard/delete-item' }>
                                             Delete Project
                                         </NavLink>
                                     </li>

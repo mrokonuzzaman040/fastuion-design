@@ -8,6 +8,8 @@ import Home from "../Home/Home/Home";
 import PagenotFound from "../Components/PagenotFound";
 import Dashboard from "../Admin/Dashboard/Dashboard";
 import DashboardLayout from "../Admin/DashboardLayout";
+import AddItem from "../Admin/Dashboard/AddItem";
+import DeleteItem from "../Admin/Dashboard/DeleteItem";
 
 const router = createBrowserRouter( [
     {
@@ -31,6 +33,14 @@ const router = createBrowserRouter( [
             {
                 path: "dashboard",
                 element: <Dashboard />,
+            },
+            {
+                path: "add-item",
+                element: <AddItem />,
+            },
+            {
+                path: "delete-item",
+                element: <DeleteItem />,
             },
         ],
     },
