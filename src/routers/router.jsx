@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import HomeLayout from "../Home/HomeLayout";
 import Home from "../Home/Home/Home";
+import PagenotFound from "../Components/PagenotFound";
 
 const router = createBrowserRouter( [
     {
@@ -16,6 +17,10 @@ const router = createBrowserRouter( [
                 element: <Home />,
             },
         ],
+    },
+    {
+        path: "*",
+        element: <PagenotFound />,
     },
 ] );
 
