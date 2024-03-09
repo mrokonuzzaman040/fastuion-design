@@ -7,6 +7,7 @@ import { AuthContext } from '../Auth/AuthProvide';
 const Login = () => {
 
     const [ disabled, setDisabled ] = useState( true );
+    // @ts-ignore
     const { signIn } = useContext( AuthContext );
     const navigate = useNavigate();
     const location = useLocation();
