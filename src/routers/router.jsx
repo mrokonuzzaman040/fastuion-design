@@ -11,6 +11,7 @@ import DashboardLayout from "../Admin/DashboardLayout";
 import AddItem from "../Admin/Dashboard/AddItem";
 import DeleteItem from "../Admin/Dashboard/DeleteItem";
 import Login from "../Login/Login";
+import PrivateRoute from "../Auth/SecretRoute";
 
 const router = createBrowserRouter( [
     {
@@ -33,7 +34,7 @@ const router = createBrowserRouter( [
     },
     {
         path: "dashboard",
-        element: <DashboardLayout />,
+        element: <PrivateRoute> <DashboardLayout /> </PrivateRoute>,
         children: [
             {
                 path: "dashboard",
