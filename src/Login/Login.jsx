@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
+import { AuthContext } from '../Auth/AuthProvide';
 
 const Login = () => {
-    const handleLogin = ( e ) => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        console.log( email, password );
+
+    const [ disabled, setDisabled ] = useState( true );
+    const { signIn } = useContext( AuthContext );
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleLogin = ( event ) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        signIn( email, password )
+            .then( result => {
+                const user = result.user;
+                Swal.fire( {
+                    icon: 'success',
+                    title: 'Login Success',
+                    text: `Welcome ${user.email}`,
+                } );
+                navigate( location.state?.from ? location.state.from : '/dashboard' );
+            } )
     }
 
     return (
