@@ -10,6 +10,7 @@ import Dashboard from "../Admin/Dashboard/Dashboard";
 import DashboardLayout from "../Admin/DashboardLayout";
 import AddItem from "../Admin/Dashboard/AddItem";
 import DeleteItem from "../Admin/Dashboard/DeleteItem";
+import Login from "../Login/Login";
 
 const router = createBrowserRouter( [
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter( [
             {
                 path: "/",
                 element: <Home />,
+            },
+            {
+                path: "login",
+                element: <Login />,
             },
         ],
     },
