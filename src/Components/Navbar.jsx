@@ -5,12 +5,12 @@ import { config } from '../../config';
 const Navbar = () => {
     return (
         <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
-            <nav className="mt-6 relative max-w-[85rem] w-full bg-white border border-gray-200 rounded-[36px] mx-2 py-3 px-4 md:flex md:items-center md:justify-between md:py-0 md:px-6 lg:px-8 xl:mx-auto dark:bg-gray-800 dark:border-gray-700" aria-label="Global">
+            <nav className="relative w-full bg-gray-300 border-gray-200 h-28  mx- py-3 px-4 md:flex md:items-center md:justify-between md:py-0 md:px-6 lg:px-8 xl:mx-auto0" aria-label="Global">
                 <div className="flex items-center justify-between">
                     <Link className="flex-none text-xl font-semibold dark:text-white" to={ '/' } aria-label="Brand">
                         {
                             config.navbar.logo.src ? (
-                                <img className="w-10 h-10" src={ config.navbar.logo.src } alt={ config.navbar.logo.alt } />
+                                <img className="w-24 h-24" src={ config.navbar.logo.src } alt={ config.navbar.logo.alt } />
                             ) : (
                                 <span className="flex items-center gap-x-2">
                                     <span className="text-[#FF6B81]">Raisa </span>
@@ -31,7 +31,7 @@ const Navbar = () => {
                         {
                             config.navbar.links.map( ( link, index ) => {
                                 return (
-                                    <a key={ index } className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500" href={ link.link }>{ link.name }</a>
+                                    <a key={ index } className="font-medium text-gray-700 hover:text-gray-400 md:py-6" href={ link.link }>{ link.name }</a>
                                 );
                             } )
                         }

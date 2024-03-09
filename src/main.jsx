@@ -16,12 +16,13 @@ import {
 import router from './routers/router.jsx';
 import AuthProvider from './Auth/AuthProvide.jsx';
 
+// @ts-ignore
 ReactDOM.createRoot( document.getElementById( 'root' ) ).render(
   <React.StrictMode>
     <AuthProvider>
       <QueryClientProvider client={ queryClient }>
-        <div className="bg-slate-900 h-full">
-          <div className="bg-gradient-to-b from-violet-600/[.15] via-transparent">
+        <div className="bg-white text-gray-700 h-full">
+          <div className="">
             <RouterProvider router={ router } />
           </div>
         </div>

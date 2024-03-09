@@ -4,12 +4,10 @@ import ProjectCart from './ProjectCart';
 const Projects = () => {
     return (
         <>
-
-            <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+            <div id='projects' className="p-10">
 
                 <div className="max-w-2xl text-center mx-auto mb-10 lg:mb-14">
-                    <h2 className="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">Here is some of my resent work</h2>
-                    <p className="mt-1 text-gray-600 dark:text-gray-400"> You are most welcome to visit my work's. </p>
+                    <h2 className="text-2xl font-bold md:text-4xl md:leading-tight ">Projects</h2>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 lg:mb-14">

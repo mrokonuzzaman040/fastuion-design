@@ -1,7 +1,9 @@
+import logo from "./public/images/logo.png";
+
 const config = {
     navbar: {
         logo: {
-            src: "images/logo.svg",
+            src: logo,
             alt: "Raisa Fashion Designer",
         },
         links: [

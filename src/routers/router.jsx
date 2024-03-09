@@ -12,6 +12,7 @@ import AddItem from "../Admin/Dashboard/AddItem";
 import DeleteItem from "../Admin/Dashboard/DeleteItem";
 import Login from "../Login/Login";
 import PrivateRoute from "../Auth/SecretRoute";
+import ProjectDetails from "../Home/Home/Component/ProjectDetails";
 
 const router = createBrowserRouter( [
     {
@@ -25,6 +26,11 @@ const router = createBrowserRouter( [
             {
                 path: "login",
                 element: <Login />,
+            },
+            {
+                path: "projectdetails/:id",
+                element: <ProjectDetails />,
+                
             },
         ],
     },
