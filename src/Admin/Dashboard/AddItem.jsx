@@ -5,25 +5,15 @@ const AddItem = () => {
     const [ description, setDescription ] = useState( '' );
     const [ image, setImage ] = useState( null );
 
-    const handleNameChange = ( e ) => {
-        setName( e.target.value );
-    };
-
-    const handleDescriptionChange = ( e ) => {
-        setDescription( e.target.value );
-    };
-
-    const handleImageChange = ( e ) => {
-        setImage( e.target.files[ 0 ] );
-    };
-
     const handleSubmit = ( e ) => {
         e.preventDefault();
-
-        // Reset the form fields
-        setName( '' );
-        setDescription( '' );
-        setImage( null );
+        const data = {
+            name: name,
+            description: description,
+            image: image
+        }
+        
+        
     };
 
     return (
@@ -36,8 +26,7 @@ const AddItem = () => {
                     <input
                         type="text"
                         id="name"
-                        value={ name }
-                        onChange={ handleNameChange }
+                        onChange={ ( e ) => setName( e.target.value ) }
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                 </div>
@@ -47,8 +36,7 @@ const AddItem = () => {
                     </label>
                     <textarea
                         id="description"
-                        value={ description }
-                        onChange={ handleDescriptionChange }
+                        onChange={ ( e ) => setDescription( e.target.value ) }
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                 </div>
@@ -59,7 +47,8 @@ const AddItem = () => {
                     <input
                         type="file"
                         id="image"
-                        onChange={ handleImageChange }
+                        multiple
+                        onChange={ ( e ) => setImage( e.target.files ) }
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                 </div>
