@@ -4,15 +4,16 @@ const AddItem = () => {
     const [ name, setName ] = useState( '' );
     const [ description, setDescription ] = useState( '' );
     const [ image, setImage ] = useState( null );
+    const [ cover, setCover ] = useState( null );
 
     const handleSubmit = ( e ) => {
         e.preventDefault();
         const data = {
             name: name,
             description: description,
+            cover: cover,
             image: image
         }
-        
         
     };
 
@@ -40,9 +41,20 @@ const AddItem = () => {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                 </div>
+                <div className="">
+                    <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">
+                        Cover Image:
+                    </label>
+                    <input
+                        type="file"
+                        id="image"
+                        onChange={ ( e ) => setCover( e.target.files[ 0 ] ) }
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                </div>
                 <div className="mb-4">
                     <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">
-                        Image:
+                        Project Image:
                     </label>
                     <input
                         type="file"
