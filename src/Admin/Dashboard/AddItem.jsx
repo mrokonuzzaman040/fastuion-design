@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import usePublicApi from '../../Hooks/useAxiosPublic';
 
 const AddItem = () => {
     const [ name, setName ] = useState( '' );
@@ -6,15 +7,62 @@ const AddItem = () => {
     const [ image, setImage ] = useState( null );
     const [ cover, setCover ] = useState( null );
 
+    const publicApi = usePublicApi();
+
+    const uploadImage = async () => {
+        const formData = new FormData();
+        formData.append( 'image', image );
+        try {
+            const res = await publicApi.post( '/image', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                onUploadProgress: ( progressEvent ) => {
+                    const progress = Math.round( ( progressEvent.loaded / progressEvent.total ) * 100 );
+                    console.log( progress );
+                }
+            } );
+            console.log( res.data.profile_url );
+        } catch ( error ) {
+            console.log( error );
+        }
+    };
+
+    const uploadCover = async () => {
+        const formData = new FormData();
+        formData.append( 'cover', cover );
+        try {
+            const res = await publicApi.post( '/image', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                onUploadProgress: ( progressEvent ) => {
+                    const progress = Math.round( ( progressEvent.loaded / progressEvent.total ) * 100 );
+                    console.log( progress );
+                }
+            } );
+            console.log( res.data.profile_url );
+        } catch ( error ) {
+            console.log( error );
+        }
+    };
+
     const handleSubmit = ( e ) => {
         e.preventDefault();
-        const data = {
-            name: name,
-            description: description,
-            cover: cover,
-            image: image
-        }
-        
+        const formData = new FormData();
+        formData.append( 'name', name );
+        formData.append( 'description', description );
+        formData.append( 'image', image );
+        formData.append( 'cover', cover );
+        publicApi.post( 'api/project', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        } ).then( ( res ) => {
+            console.log( res );
+        } ).catch( ( error ) => {
+            console.log( error );
+        } );
     };
 
     return (
