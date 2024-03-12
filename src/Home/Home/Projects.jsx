@@ -1,7 +1,29 @@
 import React from 'react';
 import ProjectCart from './ProjectCart';
+import { useQuery } from '@tanstack/react-query';
+import usePublicApi from '../../Hooks/useAxiosPublic';
 
 const Projects = () => {
+    const axiosPublic = usePublicApi();
+    const { data: product = [], isPending: loading, refetch }
+        = useQuery( {
+            queryKey: [ 'product' ],
+            queryFn: async () => {
+                const res = await axiosPublic.get( '/api/project' );
+                return res.data;
+            }
+        } );
+
+    console.log( product );
+
+    if ( loading ) {
+        return (
+            <div className="flex justify-center items-center h-96">
+                <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+            </div>
+        );
+    }
+
     return (
         <>
             <div id='projects' className="p-10">
@@ -11,11 +33,9 @@ const Projects = () => {
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 lg:mb-14">
-                    {
-                        [ 1, 2, 3, 4, 5, 6 ].map( ( item, index ) => (
-                            <ProjectCart key={ index } />
-                        ) )
-                    }
+                    { product.map( ( item, index ) => (
+                        <ProjectCart key={ index } name={ item.name } cover_image={ item.cover_image } herf={ item.id } />
+                    ) ) }
                 </div>
 
             </div>
