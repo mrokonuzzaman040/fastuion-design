@@ -1,6 +1,8 @@
 import React from 'react';
 import usePublicApi from '../../Hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
+
 
 const DeleteItem = () => {
 
@@ -20,8 +22,25 @@ const DeleteItem = () => {
     }
 
     const deleteItem = async ( id ) => {
-        await publicApi.delete( `/api/project/${id}` );
-        refetch();
+        Swal.fire( {
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        } ).then( async ( result ) => {
+            if ( result.isConfirmed ) {
+                await publicApi.delete( `/api/project/${id}` );
+                refetch();
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                );
+            }
+        } );
     };
 
     return (
@@ -53,10 +72,7 @@ const DeleteItem = () => {
                                 <td className="p-2 border">{ item.name }</td>
                                 <td className="p-2 border">{ item.description }</td>
                                 <td className="p-2 border">
-                                    <button className="bg-red-500 text-white px-4 py-2 rounded-md" onClick={ () => {
-                                        publicApi.delete( `/api/project/${item._id}` );
-                                        refetch();
-                                    } }>Delete</button>
+                                    <button className="bg-red-500 text-white px-4 py-2 rounded-md" onClick={ () => deleteItem( item._id ) }>Delete</button>
                                 </td>
                             </tr>
                         </tbody>
