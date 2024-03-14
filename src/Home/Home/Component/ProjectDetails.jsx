@@ -3,20 +3,30 @@ import { useLoaderData } from 'react-router-dom';
 
 const ProjectDetails = () => {
     const data = useLoaderData();
-    // @ts-ignore
-    const detailData = data[ 0 ];
-    const { name, description, cover_image, project_images } = detailData;
-    console.log( data );
+    const dataDetails = data[ 0 ];
+    const projectImages = JSON.parse( dataDetails.project_image );
     return (
         <>
-            <div className="max-w-4xl mx-auto p-10">
-                <h2 className="text-2xl font-bold mb-5">{ name }</h2>
-                <img src={ detailData.cover_image } alt={ cover_image } className="w-full h-96 object-cover mb-5" />
-                <p className="mb-5">{ description }</p>
+            <div className="p-4">
+                <div className="max-w-2xl text-center mx-auto mb-10 lg:mb-14">
+                    <h2 className="text-2xl font-bold md:text-4xl md:leading-tight ">{ dataDetails.name }</h2>
+                </div>
+                <div className="flex justify-center items-center">
+                    <img src={ dataDetails.cover_image } alt={ dataDetails.name } />
+                </div>
+            </div>
+            <div className="">
+                <div className="max-w-2xl mx-auto mb-10 lg:mb-14">
+                    <p className="text-justify">{ dataDetails.description }</p>
+                </div>
+            </div>
+            <div className="w-full">
                 {
-                    // detailData.images && detailData.images.map( ( image, index ) => (
-                    //     <img key={ index } src={ image } alt={ detailData.name } className="w-full h-96 object-cover mb-5" />
-                    // ) )
+                    projectImages.map( ( image, index ) => (
+                        <div key={ index } className="flex justify-center items-center">
+                            <img src={ image } alt={ dataDetails.name } />
+                        </div>
+                    ) )
                 }
             </div>
         </>

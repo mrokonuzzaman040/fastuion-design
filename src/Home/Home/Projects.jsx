@@ -13,9 +13,6 @@ const Projects = () => {
                 return res.data;
             }
         } );
-
-    console.log( product );
-
     if ( loading ) {
         return (
             <div className="flex justify-center items-center h-96">

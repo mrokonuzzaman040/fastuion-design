@@ -32,8 +32,9 @@ const DeleteItem = () => {
             confirmButtonText: 'Yes, delete it!'
         } ).then( async ( result ) => {
             if ( result.isConfirmed ) {
-                await publicApi.delete( `/api/project/${id}` );
-                refetch();
+                publicApi.delete( `/api/project/${id}` ).then( res => {
+                    refetch();
+                } )
                 Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
@@ -67,12 +68,12 @@ const DeleteItem = () => {
                         <tbody key={ index }>
                             <tr>
                                 <td className="p-2 border">
-                                    <img src={ item.image } alt={ item.name } className="w-20 h-20 object-cover" />
+                                    <img src={ item.cover_image } alt={ item.name } className="w-20 h-20 object-cover" />
                                 </td>
                                 <td className="p-2 border">{ item.name }</td>
                                 <td className="p-2 border">{ item.description }</td>
                                 <td className="p-2 border">
-                                    <button className="bg-red-500 text-white px-4 py-2 rounded-md" onClick={ () => deleteItem( item._id ) }>Delete</button>
+                                    <button className="bg-red-500 text-white px-4 py-2 rounded-md" onClick={ () => deleteItem( item.id ) }>Delete</button>
                                 </td>
                             </tr>
                         </tbody>
