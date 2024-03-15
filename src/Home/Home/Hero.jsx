@@ -13,18 +13,18 @@ const Hero = () => {
                         </h1>
                     </div>
 
-                    <div className="max-w-3xl text-center mx-auto">
+                    {/* <div className="max-w-3xl text-center mx-auto">
                         <p className="text-lg text-gray-400">Preline is a large open-source project, crafted with Tailwind CSS framework by Hmlstream.</p>
-                    </div>
+                    </div> */}
 
-                    <div className="text-center">
+                    {/* <div className="text-center">
                         <a className="text-2xl" href="#contact">
                             <div className="items-center flex justify-center flex-col">
                                 Contact
                                 <FaLongArrowAltDown />
                             </div>
                         </a>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

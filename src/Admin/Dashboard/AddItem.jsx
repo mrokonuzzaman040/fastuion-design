@@ -26,7 +26,7 @@ const AddItem = () => {
                 }
             } );
             setImgUrl( res.data.image_url );
-            
+
         } catch ( error ) {
             console.log( error );
         }
@@ -59,15 +59,17 @@ const AddItem = () => {
         e.preventDefault();
         const name = e.target.name.value;
         const description = e.target.description.value;
+        const season = e.target.season.value;
         const data = {
             name,
             description,
+            season,
             cover_image: imgUrl,
             project_image: projectImageurls,
         }
 
         // check before sending data if any of the fields are empty use SweetAlert
-        if ( name === '' || description === '' || imgUrl === '' || projectImageurls.length === 0 ) {
+        if ( name === '' || description === '' || season === '' || imgUrl === '' || projectImageurls.length === 0 ) {
             Swal.fire( {
                 icon: 'error',
                 title: 'Oops...',
@@ -88,10 +90,12 @@ const AddItem = () => {
             imgUrl && setImgUrl( '' );
             setProjectImageUrls( [] );
             setProjectImages( [] );
+
+            console.log( response );
         } catch ( error ) {
             console.log( error );
         }
-        
+
     };
 
     return (
@@ -171,14 +175,19 @@ const AddItem = () => {
             <form onSubmit={ handleSubmit } className="max-w-lg mx-auto">
                 <div className="mb-4">
                     <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
-                        Name:
+                        Titel:
                     </label>
                     <input
                         type="text"
                         id="name"
-
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
+                </div>
+                <div className="">
+                    <label htmlFor="season" className="block text-gray-700 text-sm font-bold mb-2">Season</label>
+                    <input type="text"
+                        id='season'
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="description" className="block text-gray-700 text-sm font-bold mb-2">
