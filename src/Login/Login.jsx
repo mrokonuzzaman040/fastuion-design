@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import 'sweetalert2/src/sweetalert2.scss'
 import { AuthContext } from '../Auth/AuthProvide';
@@ -7,7 +7,6 @@ import { AuthContext } from '../Auth/AuthProvide';
 const Login = () => {
 
     const [ disabled, setDisabled ] = useState( true );
-    // @ts-ignore
     const { signIn } = useContext( AuthContext );
     const navigate = useNavigate();
     const location = useLocation();
